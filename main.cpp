@@ -18,13 +18,9 @@ std::string arithmetic::cropper(std::string a) {
 }
 
 void arithmetic::checker() {
-	int ii = 0;
-	for (auto& i : this->numbers) {
-		if (ii < this->numbers.size()) {
-			i = cropper(this->numbers[ii]);
-		}
+	for (const auto& i : this->numbers) {
 		try {
-			int64 num = std::stoi(i);
+			int num = std::stoi(i);
 			this->sum.push_back(static_cast<d16>(num));
 		}
 		catch (const std::invalid_argument& ia) {
@@ -102,12 +98,6 @@ arithmetic::arithmetic(std::string a) {
 			std::cout << substring << " ";
 			
 	}
-
-	for (auto i : this->numbers) 
-		i = cropper(i);
-	
-
-
 	checker();
 	std::cout << " = " << product() << std::endl;
 }
@@ -121,6 +111,7 @@ arithmetic::~arithmetic() {
 
 
 int main() {
+
 	std::string b;
 	label:
 	std::cin >> b;
